@@ -1,0 +1,14 @@
+version: "3"
+services:
+  dockermongo:
+    image: mongo:latest
+    container_name: "dockermongo"
+    ports:
+      - 27017:27017
+  springboot-mongodb:
+    image: docker-jenkins-integration:1.0
+    container_name: springboot-mongodb
+    ports:
+      - 8081:8081
+    links:
+      - dockermongo
